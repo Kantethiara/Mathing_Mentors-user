@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommandation Individuelle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1><i class="fas fa-user"></i> Recommandation Individuelle</h1>
+            <p>Remplissez ce formulaire pour obtenir des recommandations personnalisées</p>
+            <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
+        </div>
+
+        <form method="POST" action="{{ url_for('formulaire_individuel') }}">
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Adresse e-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="objectif"><i class="fas fa-bullseye"></i> Quel est ton principal objectif professionnel ?</label>
+                <input type="text" id="objectif" name="objectif" placeholder="Ex: Devenir développeur web full-stack" required>
+            </div>
+
+            <div class="form-group">
+                <label for="formation"><i class="fas fa-graduation-cap"></i> Quelle formation serait idéale pour toi ?</label>
+                <input type="text" id="formation" name="formation" placeholder="Ex: Formation en développement web" required>
+            </div>
+
+            <div class="form-group">
+                <label for="format_formation"><i class="fas fa-laptop-house"></i> Quel format de formation vous convient le plus ?</label>
+                <select id="format_formation" name="format_formation" required>
+                    <option value="">-- Sélectionnez un format --</option>
+                    <option value="presentiel">Présentiel</option>
+                    <option value="distanciel">Distanciel</option>
+                    <option value="hybride">Hybride (mixte)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="situation"><i class="fas fa-briefcase"></i> Quel est ton métier et ta situation professionnelle actuelle ?</label>
+                <input type="text" id="situation" name="situation" placeholder="Ex: Étudiant en informatique" required>
+            </div>
+
+            <div class="form-group">
+                <label for="budget"><i class="fas fa-euro-sign"></i> Budget disponible pour la formation</label>
+                <select id="budget" name="budget" required>
+                    <option value="">-- Sélectionnez une fourchette --</option>
+                    <option value="0-1000">0 - 10 000 fcfa</option>
+                    <option value="1000-3000">10 000 - 30 000fcfa</option>
+                    <option value="3000-5000">30 000 - 50 000fcfa</option>
+                    <option value="5000+">Plus de 50 000fcfa</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="remarques"><i class="fas fa-comment-dots"></i> Des remarques, suggestions ou questions ?</label>
+                <textarea id="remarques" name="remarques" placeholder="Vos commentaires..."></textarea>
+            </div>
+
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Envoyer le formulaire
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

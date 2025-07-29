@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Résultats des recommandations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylebatch.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Résultats</h1>
+    {% if recommandations %}
+        <table border="1">
+            <tr>
+                <th>Étudiant</th>
+                <th>Objectif</th>
+                <th>Formation</th>
+                <th>Situation professionnel</th>
+                <th>Top Mentors</th>
+                <th>Scores</th>
+            </tr>
+            {% for rec in recommandations %}
+            <tr>
+                <td>{{ rec['Etudiant'] }}</td>
+                <td>{{ rec['Objectif'] }}</td>
+                <td>{{ rec['Formation'] }}</td>
+                <td>{{ rec['situation_Pro'] }}</td>
+                <td>
+                    <ul>
+                        {% for mentor in rec['Top Mentors'] %}
+                        <a href="{{ mentor.url }}">{{ mentor.nom }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    
+                    </ul>
+                        
+                </td>
+                <td>
+                    <ul>
+                    {% for score in rec['Scores'] %}
+                        <li>{{ score }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Aucune recommandation trouvée.</p>
+    {% endif %}
+
+    
+    <a href="{{ url_for('home') }}">Retour à l'accueil</a>
+</body>
+</html>

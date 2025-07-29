@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire Individuel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Formulaire Étudiant</h1>
+    <form method="POST">
+        <label>Email</label>
+        <input type="email" name="email" required>
+        
+        <label>Objectif professionnel</label>
+        <input type="text" name="objectif" required>
+        
+        <label>Formation idéale</label>
+        <input type="text" name="formation" required>
+        
+        <label>Format de formation</label>
+        <input type="text" name="format_formation" required>
+        
+        <label>Situation professionnelle actuelle</label>
+        <input type="text" name="situation" required>
+        
+        <label>Remarques</label>
+        <textarea name="remarques"></textarea>
+        
+        <button type="submit">Envoyer</button>
+    </form>
+</div>
+</body>
+</html>

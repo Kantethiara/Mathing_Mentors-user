@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats Individuels</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Vos recommandations personnalisées</h1>
+    <p><strong>Généré le :</strong> {{ horodateur }}</p>
+    <p><strong>Email :</strong> {{ form_data.email }}</p>
+    <p><strong>Objectif :</strong> {{ form_data.objectif }}</p>
+    <p><strong>Formation souhaitée :</strong> {{ form_data.formation }}</p>
+
+    <h2>Mentors recommandés :</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for mentor in recommandations %}
+        <tr>
+            <td>{{ mentor.nom }}</td>
+            <td>{{ mentor.email }}</td>
+            <td>{{ "%.2f" | format(mentor.score * 100) }}%</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/" class="button">⬅️ Retour</a>
+</div>
+</body>
+</html>

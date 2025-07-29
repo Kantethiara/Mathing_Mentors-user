@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats Batch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Résultats du traitement batch</h1>
+    <p>Généré le : {{ horodateur }}</p>
+
+    {% for rec in recommandations %}
+        <div class="student-result">
+            <h2>{{ rec.etudiant }}</h2>
+            <p><strong>Objectif :</strong> {{ rec.objectif }}</p>
+            <p><strong>Formation :</strong> {{ rec.formation }}</p>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Nom Mentor</th>
+                    <th>Email</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mentor in rec.mentors %}
+                    <tr>
+                        <td>{{ mentor.nom }}</td>
+                        <td>{{ mentor.email }}</td>
+                        <td>{{ "%.2f" | format(mentor.score * 100) }}%</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+    <a href="/" class="button">⬅️ Retour</a>
+</div>
+</body>
+</html>

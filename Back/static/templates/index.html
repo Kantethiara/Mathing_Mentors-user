@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Bienvenue dans le système de recommandation</h1>
+    <p>Choisissez un mode d’utilisation :</p>
+    <a href="/formulaire-individuel" class="button">Formulaire individuel</a>
+    <a href="/batch-upload" class="button">Upload en lot (fichier)</a>
+</div>
+</body>
+</html>

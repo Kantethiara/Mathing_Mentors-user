@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mentor['nom'] }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 60%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            width: 30%;
+        }
+
+        a {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>{{ mentor.nom }}</h1>
+
+    <table>
+        <tr>
+            <th>Situation professionnelle</th>
+            <td>{{ mentor.situation_professionnelle }}</td>
+        </tr>
+        <tr>
+            <th>Domaine d'expertise</th>
+            <td>{{ mentor.expertise }}</td>
+        </tr>
+        <tr>
+            <th>Années d'expérience</th>
+            <td>{{ mentor.experience }}</td>
+        </tr>
+        <tr>
+            <th>Objectif</th>
+            <td>{{ mentor.objectif }}</td>
+        </tr>
+        <tr>
+            <th>Compétences clés</th>
+            <td>{{ mentor.competences }}</td>
+        </tr>
+        <tr>
+            <th>Disponibilités (jours)</th>
+            <td>{{ mentor.disponibilites_jours }}</td>
+        </tr>
+        <tr>
+            <th>Disponibilités (périodes de la journée)</th>
+            <td>{{ mentor.disponibilites_periodes }}</td>
+        </tr>
+    </table>
+
+    <a href="/">⬅️ Retour</a>
+
+</body>
+</html>
